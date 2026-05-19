@@ -83,3 +83,37 @@ def engineer_weather_features(df: pd.DataFrame) -> pd.DataFrame:
     df = add_time_features(df)
     df = add_solar_features(df)
     return df.dropna()
+def prepare_solar_data(target_path: str, weather_path: str) -> pd.DataFrame:
+    """Complete pipeline: load + preprocess weather + merge with targets."""
+    target_train = pd.read_parquet(target_path)
+    weather_train = pd.read_parquet(weather_path)
+    
+    weather_features = engineer_weather_features(prepare_weather(weather_train))
+    
+    # Merge with targets
+    solar_df = target_train[['FR_solar_actual']].join(weather_features)
+    
+    return solar_df
+
+def prepare_wind_data(target_path: str, weather_path: str) -> pd.DataFrame:
+    """Complete pipeline for wind."""
+    target_train = pd.read_parquet(target_path)
+    weather_train = pd.read_parquet(weather_path)
+    
+    weather_features = engineer_weather_features(prepare_weather(weather_train))
+    
+    wind_df = target_train[['FR_wind_actual']].join(weather_features)
+    
+    return wind_df
+
+def prepare_load_data(target_path: str, weather_path: str, network_path: str) -> pd.DataFrame:
+    """Complete pipeline for load (includes network features)."""
+    target_train = pd.read_parquet(target_path)
+    weather_train = pd.read_parquet(weather_path)
+    network_train = pd.read_parquet(network_path)
+    
+    weather_features = engineer_weather_features(prepare_weather(weather_train))
+    
+    load_df = target_train[['FR_load_actual']].join(weather_features).join(network_train)
+    
+    return load_df
