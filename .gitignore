@@ -34,12 +34,9 @@ env/
 profile_default/
 ipython_config.py
 
-# Data Science - CRITICAL
-data/*.parquet
-data/*.csv
-data/*.parquet.gz
-data/*.csv.gz
-!data/.gitkeep
+# Data Science - data files tracked for reviewer
+!data/*.parquet
+!data/*.csv
 
 models/*.joblib
 !models/.gitkeep
@@ -49,6 +46,9 @@ models/*.joblib
 results/
 outputs/
 logs/
+
+# Claude Code local settings
+.claude/settings.local.json
 
 # IDEs
 .vscode/
