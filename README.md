@@ -64,17 +64,13 @@ network_train.parquet
 Electricity-forecasting-challenge/
 ├── README.md                          (this file)
 ├── notebooks/
-│   ├── 01_eda.ipynb                  (exploratory data analysis)
-│   ├── 02_solar_model.ipynb          (solar generation forecasting)
-│   ├── 03_wind_model.ipynb           (wind generation forecasting)
-│   ├── 04_load_model.ipynb           (electricity load forecasting)
-│   ├── 05_price_model.ipynb          (electricity price forecasting)
-│   └── 06_inference.ipynb            (2025 predictions)
+│   ├── 01_kpler_EDA.ipynb            (exploratory data analysis)
+│   ├── 02_kpler_solar.ipynb          (solar generation forecasting)
+│   ├── 03_kpler_wind.ipynb           (wind generation forecasting)
+│   ├── 04_kpler_load.ipynb           (electricity load forecasting)
+│   └── 05_kpler_price.ipynb          (electricity price forecasting)
 │
-├── src/
-│   └── preprocessing.py              (feature engineering functions)
-│
-├── data/
+├── data/                             (not tracked — add your parquet files here)
 │   ├── target_train.parquet          (training targets)
 │   ├── weather_train.parquet         (training weather)
 │   ├── network_train.parquet         (training network data)
@@ -82,18 +78,14 @@ Electricity-forecasting-challenge/
 │   └── network_test.parquet          (2025 network data)
 │
 ├── models/
-│   ├── solar_final.pkl               (trained solar model)
-│   ├── wind_final.pkl                (trained wind model)
-│   ├── load_final.pkl                (trained load model)
-│   └── price_final.pkl               (trained price model)
+│   ├── xgboost_solar_model.pkl       (trained solar model — XGBoost)
+│   ├── tuned_lgbm_wind_model.pkl     (trained wind model — LightGBM)
+│   └── load_final.pkl                (trained load model — LightGBM)
 │
 ├── predictions/
-│   ├── 2025_forecast.parquet         (final 2025 predictions)
-│   └── 2025_forecast.csv             (CSV version)
-│
-├── results/
-│   ├── evaluation_report.md          (detailed metrics & analysis)
-│   └── model_comparison.csv          (metrics comparison table)
+│   ├── FR_solar_predicted_2025.parquet
+│   ├── FR_wind_predicted_2025.parquet
+│   └── FR_load_predicted_2025.parquet
 │
 └── requirements.txt                  (Python dependencies)
 ```
@@ -283,15 +275,12 @@ pip install -r requirements.txt
 
 ### Predictions (Main Deliverable)
 
-**`predictions/2025_forecast.parquet`**
+**Prediction files (Apache Parquet, hourly 2025)**
 ```
-Format: Apache Parquet
-Index: Datetime (hourly, full year 2025)
-Columns:
-  - FR_solar_actual: Solar generation [MW]
-  - FR_wind_actual: Wind generation [MW]
-  - FR_load_actual: Load [MW]
-  - FR_price_actual: Electricity price [€/MWh]
+predictions/
+├── FR_solar_predicted_2025.parquet   Solar generation [MW]
+├── FR_wind_predicted_2025.parquet    Wind generation [MW]
+└── FR_load_predicted_2025.parquet    Load [MW]
 
 
 
@@ -299,10 +288,9 @@ Columns:
 
 ```
 models/
-├── solar_final.pkl       (LightGBM, 300 estimators)
-├── wind_final.pkl        (LightGBM, 300 estimators)
-├── load_final.pkl        (LightGBM, 300 estimators)
-└── price_final.pkl       (LightGBM, 300 estimators)
+├── xgboost_solar_model.pkl       (XGBoost)
+├── tuned_lgbm_wind_model.pkl     (LightGBM, tuned)
+└── load_final.pkl                (LightGBM)
 ```
 
 
