@@ -41,11 +41,11 @@ data/*.parquet.gz
 data/*.csv.gz
 !data/.gitkeep
 
-models/*.pkl
 models/*.joblib
 !models/.gitkeep
+!models/*.pkl
 
-predictions/
+# predictions/ — tracked for reviewer
 results/
 outputs/
 logs/
