@@ -6,3 +6,5 @@ lightgbm >= 3.2.0
 xgboost >= 1.4.0
 matplotlib >= 3.4.0
 jupyter >= 1.0.0
+pyarrow>=5.0.0
+ 
