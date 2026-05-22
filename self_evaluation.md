@@ -114,7 +114,7 @@
 | Stacked predictions (3) | `pred_solar`, `pred_wind`, `pred_load` (OOF predictions from models 1–3) |
 
 
-A substantial drop in performance from training data (R²: 0.98, MAE: 10.09) tovalidation data (R²: 0.1260, MAE: 30.56). This usually indicates that the model is overfitting to the training data.
+A substantial drop in performance from training data (R²: 0.98, MAE: 10.09) tovalidation data (R²: 0.1533, MAE: 29.94). This usually indicates that the model is overfitting to the training data.
 
 Overfitting means the model has learned the training data too well, including its noise and specific patterns, and thus struggles to generalize to new, unseen data (like your validation set).
 
