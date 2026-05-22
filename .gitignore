@@ -74,3 +74,4 @@ credentials.json
 .coverage
 .pytest_cache/
 htmlcov/
+kpler_interview_case_study_datascience_power/
