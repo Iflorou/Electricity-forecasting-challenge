@@ -31,8 +31,8 @@
 
 | Metric | Value | 
 |--------|-------|
-| **Training R²** | 
-| **Validation R²** | 
+| **Training R²** | 0.9940|
+| **Validation R²** | 0.8318|
 
 
 - **High training R²** (0.99): Model learns underlying patterns well
@@ -86,8 +86,8 @@
 
 | Metric | Value |
 |--------|-------|
-| **Training R²** | 
-| **Validation R²** | 
+| **Training R²** | 0.9949|
+| **Validation R²** | 0.8959|
 
 
 
