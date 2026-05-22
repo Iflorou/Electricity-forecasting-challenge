@@ -29,10 +29,10 @@
 
 ### Performance Metrics
 
-| Metric | Value | Grade |
-|--------|-------|-------|
-| **Training R²** | 0.9940 | 
-| **Validation R²** | 0.8318 | 
+| Metric | Value | 
+|--------|-------|
+| **Training R²** | 
+| **Validation R²** | 
 
 
 - **High training R²** (0.99): Model learns underlying patterns well
@@ -57,10 +57,10 @@
 
 ### Performance Metrics
 
-| Metric | Value | Grade |
-|--------|-------|-------|
-| **Training R²** | 0.9949 | A+ |
-| **Validation R²** | 0.8959 | A- |
+| Metric | Value | 
+|--------|-------|
+| **Training R²** | 0.9949 | 
+| **Validation R²** | 0.8959 | 
 
 - **Best R² after tuning** (0.896): Among best in submission
 - **High WMAPE** (16.15%): 1 in 6 predictions off by >16%
@@ -84,10 +84,10 @@
 
 ### Performance Metrics
 
-| Metric | Value | Grade |
-|--------|-------|-------|
-| **Training R²** | 0.9782 | 
-| **Validation R²** | 0.9175 |
+| Metric | Value |
+|--------|-------|
+| **Training R²** | 
+| **Validation R²** | 
 
 
 
